@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('https://crud-app-bay-beta.vercel.app/getAll')
+    fetch('https://crud-app-2-jt7x.onrender.com/getAll')
     .then(response => response.json())
     .then(data => {
         // console.log(data['data'])
@@ -27,13 +27,13 @@ searchBtn.onclick = function() {
         location.reload()
     }
 
-    fetch('https://crud-app-bay-beta.vercel.app/search/' + searchValue)
+    fetch('https://crud-app-2-jt7x.onrender.com/search/' + searchValue)
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']));
 }
 
 function deleteRowById(id) {
-    fetch('http://localhost:5000/delete/' + id, {
+    fetch('https://crud-app-2-jt7x.onrender.com/delete/' + id, {
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -56,7 +56,7 @@ updateBtn.onclick = function() {
 
     console.log(updateNameInput);
 
-    fetch('https://crud-app-bay-beta.vercel.app/update', {
+    fetch('https://crud-app-2-jt7x.onrender.com/update', {
         method: 'PATCH',
         headers: {
             'Content-type' : 'application/json'
@@ -82,7 +82,7 @@ addBtn.onclick = function () {
     const name = nameInput.value;
     nameInput.value = "";
 
-    fetch('https://crud-app-bay-beta.vercel.app/create', {
+    fetch('https://crud-app-2-jt7x.onrender.com/create', {
         headers: {
             'Content-type': 'application/json'
         },
