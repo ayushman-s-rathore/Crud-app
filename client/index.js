@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('http://localhost:5000/getAll')
+    fetch('https://crud-app-bay-beta.vercel.app/getAll')
     .then(response => response.json())
     .then(data => {
         // console.log(data['data'])
@@ -27,7 +27,7 @@ searchBtn.onclick = function() {
         location.reload()
     }
 
-    fetch('http://localhost:5000/search/' + searchValue)
+    fetch('https://crud-app-bay-beta.vercel.app/search/' + searchValue)
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']));
 }
@@ -56,7 +56,7 @@ updateBtn.onclick = function() {
 
     console.log(updateNameInput);
 
-    fetch('http://localhost:5000/update', {
+    fetch('https://crud-app-bay-beta.vercel.app/update', {
         method: 'PATCH',
         headers: {
             'Content-type' : 'application/json'
@@ -82,7 +82,7 @@ addBtn.onclick = function () {
     const name = nameInput.value;
     nameInput.value = "";
 
-    fetch('http://localhost:5000/create', {
+    fetch('https://crud-app-bay-beta.vercel.app/create', {
         headers: {
             'Content-type': 'application/json'
         },
