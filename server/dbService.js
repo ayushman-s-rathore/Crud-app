@@ -44,16 +44,16 @@ class DbService{
     async addName(name){
         try{
             const dateAdded= new Date()
-            const insertId =await new Promise((resolve,reject)=>{
-                const query="INSERT INTO Crud_app (name,Date) values(?,?);"
-
-                connection.query(query, [name,dateAdded], (err, result)=>{
+            const res= await new Promise((resolve,reject)=>{
+                const query="INSERT INTO Crud_app (name,date_added) Values (?,?)"
+                connection.query(query,[name, dateAdded], (err,result)=>{
                     if(err)reject(new Error(err.message))
-                        resolve(result.insertId)
+                    resolve(result.insertId)
                 })
+                
             })
             return {
-                id: insertId,
+                id: res,
                 name: name,
                 dateAdded: dateAdded
             }
